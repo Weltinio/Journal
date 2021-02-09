@@ -1,0 +1,20 @@
+<div class = 'container'>
+    <table>
+        <thead>
+            <tr>
+                <th> Title </th>
+                <th> Description </th>
+                <th> Priority Rating </th>
+            </tr>
+        <thead>
+        <tbody>
+            <% @categories.each do |category|  %>
+                <tr>
+                    <td> <%= category.title %> </td>
+                    <td> <%= category.description %> </td>
+                    <td> <%= category.rating %> </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
