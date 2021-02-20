@@ -1,0 +1,24 @@
+<h1> <%= @category.title %> </h1>
+
+<%= link_to "New Task", new_category_task_path, class: 'new-btn' %>
+    <table>
+        <thead>
+            <tr>
+                <th> Task </th>
+                <th> Date </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @tasks.each do |task| %>
+                <tr>
+                    <td> <%= task.body %> </td>
+                    <td> <%= task.date %> </td>
+                    <td class = 'actions'>                     
+                        <%= link_to "Show", category_task_path(@category.id, task.id), class: 'action' %> 
+                        <%= link_to "Edit", edit_category_task_path(@category.id, task.id), class: 'action' %> 
+                        <%= link_to "Delete", category_task_path(@category.id, task.id), method: "delete", class: 'action', data: { confirm: "Are you sure?" } %> 
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>

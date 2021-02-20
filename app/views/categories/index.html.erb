@@ -1,18 +1,26 @@
-<div class = 'container'>
+<h1> Journal</h1>
+
+    <%= link_to "New Category", new_category_path, class: 'new-btn' %>
+<div class = 'container'>    
     <table>
         <thead>
             <tr>
                 <th> Title </th>
                 <th> Description </th>
-                <th> Priority Rating </th>
+                <th> Rating </th>
             </tr>
-        <thead>
+        </thead>
         <tbody>
-            <% @categories.each do |category|  %>
+            <% @categories.each do |category| %>
                 <tr>
                     <td> <%= category.title %> </td>
                     <td> <%= category.description %> </td>
                     <td> <%= category.rating %> </td>
+                    <td class = 'actions'>                     
+                        <%= link_to "Show", category_tasks_path(category), class: 'action' %> 
+                        <%= link_to "Edit", edit_category_path(category), class: 'action' %> 
+                        <%= link_to "Delete", category_path(category), method: "delete", class: 'action', data: { confirm: "Are you sure?" } %> 
+                    </td>
                 </tr>
             <% end %>
         </tbody>

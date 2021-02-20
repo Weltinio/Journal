@@ -3,16 +3,12 @@ class CategoriesController < ApplicationController
         @categories = Category.all
     end
 
-    def show 
-        @category = Category.find_by(title: params[:title])
-    end
-
     def edit
-        @category = Category.find_by(title: params[:title])
+        @category = Category.find(params[:id])
     end
 
     def update
-        category = Category.find_by(title: params[:title])
+        category = Category.find(params[:id])
         if category.update(category_params)
             redirect_to categories_path
         else
@@ -32,8 +28,8 @@ class CategoriesController < ApplicationController
         end
     end
 
-    def delete
-        category = Category.find_by(title: params[:title])
+    def destroy
+        category = Category.find(params[:id])
         category.destroy
         redirect_to categories_path
     end

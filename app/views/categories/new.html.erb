@@ -1,0 +1,12 @@
+<h1> New Category </h1>
+<div class = 'input-cont'>
+    <%= form_with scope: :article, class: 'form', url: new_category_path do |form| %>
+        <%= form.label :title %>
+        <%= form.text_field :title, class: 'text-field' %>
+        <%= form.label :description %>
+        <%= form.text_area :description, class: 'text-area' %>
+        <%= form.label :rating %>
+        <%= form.text_area :rating, class: 'text-field' %>
+        <%= form.submit "Submit", class: 'button' %>
+    <% end %>
+</div>
