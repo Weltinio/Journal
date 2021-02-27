@@ -1,12 +1,22 @@
-<h1> Edit <%= @category.title %> </h1>
-<div class = 'input-cont'>
-    <%= form_with model: @category, url: category_path, class: 'form', method: :patch do |form| %>
-        <%= form.label :title %>
-        <%= form.text_field :title, class: 'text-field' %>
-        <%= form.label :description %>
-        <%= form.text_area :description, class: 'text-area' %>
-        <%= form.label :rating %>
-        <%= form.text_area :rating, class: 'text-field' %>
-        <%= form.submit "Submit", class: 'button' %>
-    <% end %>
+<div class = 'cont'>
+    <div class = 'text-center input-group input-group-lg' id = 'form-cont'>    
+        <%= form_with model: @category, url: category_path, class: 'form', method: :patch do |form| %>
+            <h2 id = 'edit-title'> Edit <%= @category.title %> </h2>
+            <div class="field">
+                <%= form.label :title, class: 'form-label' %>
+                <%= form.text_field :title, class: 'form-control', id: 'edit-text' %>
+            </div>
+            <div class="field">
+                <%= form.label :description, class: 'form-label' %>
+                <%= form.text_area :description, class: 'form-control', id: 'edit-text' %>
+            </div>
+            <div class="field">
+                <%= form.label :rating, class: 'form-label' %>
+                <%= form.number_field :rating, class: 'form-control', id: 'edit-text' %>
+            </div>
+            <div class="actions">
+                <%= form.submit "Submit", class: 'btn btn-secondary', id: 'submit-btn' %>
+            </div>
+        <% end %>
+    </div>
 </div>

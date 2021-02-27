@@ -1,12 +1,14 @@
-<h1> New Category </h1>
-<div class = 'input-cont'>
-    <%= form_with scope: :article, class: 'form', url: new_category_path do |form| %>
-        <%= form.label :title %>
-        <%= form.text_field :title, class: 'text-field' %>
-        <%= form.label :description %>
-        <%= form.text_area :description, class: 'text-area' %>
-        <%= form.label :rating %>
-        <%= form.text_area :rating, class: 'text-field' %>
-        <%= form.submit "Submit", class: 'button' %>
-    <% end %>
+<div class = 'login-cont'>
+    <h2> New Category </h2>
+    <div class = 'text-center input-group input-group-lg', id = 'form-cont'>
+        <%= form_with scope: :category, class: 'form', url: categories_path do |form| %>
+            <%= form.label :title, class: 'form-label' %>
+            <%= form.text_field :title, class: 'form-control' %>
+            <%= form.label :description, class: 'form-label' %>
+            <%= form.text_area :description, class: 'form-control' %>
+            <%= form.label :rating, class: 'form-label' %>
+            <%= form.text_area :rating, class: 'form-control' %>
+            <%= form.submit "Submit", class: 'btn btn-secondary', id: 'submit-btn' %>
+        <% end %>
+    </div>
 </div>

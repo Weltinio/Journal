@@ -1,10 +1,22 @@
-<h1> New Task </h1>
-<div class = 'input-cont'>
-    <%= form_with scope: :task, class: 'form', url: new_category_task_path do |form| %>
-        <%= form.label :body %>
-        <%= form.text_area :body, class: 'text-area' %>
-        <%= form.label :date %>
-        <%= form.number_field :date, class: 'text-field' %>
-        <%= form.submit "Submit", class: 'button' %>
-    <% end %>
+<div class = 'cont'>
+    <div class = 'text-center input-group input-group-lg' id = 'form-cont'>  
+        <%= form_with scope: :task, class: 'form', url: category_tasks_path do |form| %>
+            <h1 id = 'new-task'> New Task </h1>
+            <div class="field">
+                <%= form.label :title, class: 'form-label' %>
+                <%= form.text_field :title, class: 'form-control', id: 'edit-text' %>
+            </div>
+            <div class="field">
+                <%= form.label :body, class: 'form-label' %>
+                <%= form.text_area :body, class: 'form-control', id: 'edit-text' %>
+            </div>
+            <div class="field">
+                <%= form.label :date, class: 'form-label' %>
+                <%= form.date_field :date, class: 'form-control', id: 'edit-text' %>
+            </div>
+            <div class="actions">
+                <%= form.submit "Submit", class: 'btn btn-secondary', id: 'submit-btn' %>
+            </div>
+        <% end %>
+    </div>
 </div>

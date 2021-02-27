@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand">
+  <div class="container-fluid">
+        <%= link_to 'Daily Dues', root_path, class: 'btn btn-primary navbar-brand mb-0 h1' %>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+            <li class="nav-item">
+                <%= link_to 'Task Categories', categories_path, class: 'btn btn-info' %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Edit Profile', edit_user_registration_path, class: 'nav-link', id: 'edit-profile-btn' %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
+            </li>
+        <% else %>    
+        <li class="nav-item">
+            <%= link_to 'Register', new_user_registration_path, class: 'btn btn-light' %>
+        </li>
+        <li class="nav-item">
+            <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-primary' %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

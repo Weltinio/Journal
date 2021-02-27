@@ -1,6 +1,7 @@
 require "test_helper"
 
 class CategoryTest < ActiveSupport::TestCase
+
   test "1. Should create with title" do
     category = Category.new
     category.rating = 10
@@ -20,6 +21,7 @@ class CategoryTest < ActiveSupport::TestCase
     category.title = 'Food'
     category.rating = 10
     category.description = 'eat'
+    category.user_id = 1
     assert_not category.save, 'saved without validations'
   end
 end

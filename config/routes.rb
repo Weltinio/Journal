@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root to: "home#index"
+  # get 'categories/:category_id/filter', to: 'task#filter', as: 'category_tasks_filter'
   resources :categories do
+    get 'filter'
     resources :tasks do
     end
   end
-  # get 'categories/', to: 'categories#index'
-  # get 'categories/new', to: 'categories#new', as: 'new_category'
-  # get 'categories/:title', to:  'categories#show', as: 'show_category'
-  # get 'categories/:title/edit', to: 'categories#edit', as: 'edit_category'
-  # delete 'categories/:title/delete', to: 'categories#delete', as: 'delete_category'
-  # put 'categories/:title/update', to: 'categories#update', as: 'update_category'
-  # post 'categories/create', to: 'categories#create', as: 'create_category'
 end

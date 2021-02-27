@@ -2,6 +2,9 @@ require "test_helper"
 
 class TasksControllerTest < ActionDispatch::IntegrationTest
   setup do
+    get '/users/sign_in'
+    sign_in users(:user_001)
+    post user_session_url
     @category = categories(:one)
     @task = tasks(:two)
   end
@@ -23,7 +26,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   test "should post new task" do
     assert_difference 'Task.count', 1 do
       post category_tasks_path(category_id:@task.category_id),
-      params: { task: { body: 'kain na kuya', date: '2021-03-17', category_id: @task.category_id } }
+      params: { task: { title: 'dinner', body: 'kain na kuya', date: '2021-03-17', category_id: @task.category_id } }
     end
     assert_redirected_to category_tasks_path
   end
@@ -35,9 +38,9 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
   test "should post updated task" do
     put category_task_path(category_id:@task.category_id, id:@task.id),
-      params: { task: { body: 'testing', date: '2021-02-20'} }
+      params: { task: { title: 'test', body: 'testing12345', date: '2021-02-20'} }
     update = Task.find(@task.id)
-    assert update.body == 'testing'
+    assert update.body == 'testing12345'
   end
 
   test "should get delete" do

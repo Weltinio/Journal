@@ -1,2 +1,11 @@
-<h1> <%= @task.body %> </h1>
-<h3> <%= @task.date %> </h3>
+<div class = 'cont'>
+    <div class = 'header'>
+        <h1> <%= @task.title %> </h1>
+        <h5> Due on <%= @task.date %> </h5>
+    </div>
+    <div class = 'description'>
+        <p> <%= @task.body %> </p>
+    </div>
+</div>
+
+

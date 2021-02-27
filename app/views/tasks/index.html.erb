@@ -1,24 +1,32 @@
-<h1> <%= @category.title %> </h1>
-
-<%= link_to "New Task", new_category_task_path, class: 'new-btn' %>
-    <table>
+<div class = 'cont'>
+    <table class="table table-dark">
         <thead>
             <tr>
-                <th> Task </th>
-                <th> Date </th>
+                <span id = 'cat-title'> <%= @category.title %> </span> 
+            </tr>
+            <tr>
+                <%= link_to "New Task", new_category_task_path, class: 'btn btn-secondary', id: 'new-task-btn' %>
+            </tr>
+            <tr>
+                <th class = 'table-content'> Title </th>
+                <th class = 'table-content'> Task </th>
+                <th class = 'table-content'> Date </th>
+                <th class = 'table-content'> Actions </th>
             </tr>
         </thead>
         <tbody>
             <% @tasks.each do |task| %>
                 <tr>
-                    <td> <%= task.body %> </td>
-                    <td> <%= task.date %> </td>
-                    <td class = 'actions'>                     
-                        <%= link_to "Show", category_task_path(@category.id, task.id), class: 'action' %> 
-                        <%= link_to "Edit", edit_category_task_path(@category.id, task.id), class: 'action' %> 
-                        <%= link_to "Delete", category_task_path(@category.id, task.id), method: "delete", class: 'action', data: { confirm: "Are you sure?" } %> 
+                    <td class = 'table-content'> <%= task.title %> </td>
+                    <td class = 'table-content'> <%= task.body %> </td>
+                    <td class = 'table-content'> <%= task.date %> </td>
+                    <td class = 'table-actions'>                  
+                        <%= link_to "Open", category_task_path(@category.id, task.id), class: 'btn btn-info' %> 
+                        <%= link_to "Edit", edit_category_task_path(@category.id, task.id), class: 'btn btn-light' %> 
+                        <%= link_to "Delete", category_task_path(@category.id, task.id), method: "delete", class: 'btn btn-danger', data: { confirm: "Are you sure?" } %> 
                     </td>
                 </tr>
             <% end %>
         </tbody>
     </table>
+</div>    
